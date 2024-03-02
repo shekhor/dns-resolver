@@ -1,0 +1,15 @@
+/Users/shekhor/projects/DNSResolver/DNSResolver/bin/Debug/net7.0/DNSResolver
+/Users/shekhor/projects/DNSResolver/DNSResolver/bin/Debug/net7.0/DNSResolver.deps.json
+/Users/shekhor/projects/DNSResolver/DNSResolver/bin/Debug/net7.0/DNSResolver.runtimeconfig.json
+/Users/shekhor/projects/DNSResolver/DNSResolver/bin/Debug/net7.0/DNSResolver.dll
+/Users/shekhor/projects/DNSResolver/DNSResolver/bin/Debug/net7.0/DNSResolver.pdb
+/Users/shekhor/projects/DNSResolver/DNSResolver/obj/Debug/net7.0/DNSResolver.csproj.AssemblyReference.cache
+/Users/shekhor/projects/DNSResolver/DNSResolver/obj/Debug/net7.0/DNSResolver.GeneratedMSBuildEditorConfig.editorconfig
+/Users/shekhor/projects/DNSResolver/DNSResolver/obj/Debug/net7.0/DNSResolver.AssemblyInfoInputs.cache
+/Users/shekhor/projects/DNSResolver/DNSResolver/obj/Debug/net7.0/DNSResolver.AssemblyInfo.cs
+/Users/shekhor/projects/DNSResolver/DNSResolver/obj/Debug/net7.0/DNSResolver.csproj.CoreCompileInputs.cache
+/Users/shekhor/projects/DNSResolver/DNSResolver/obj/Debug/net7.0/DNSResolver.dll
+/Users/shekhor/projects/DNSResolver/DNSResolver/obj/Debug/net7.0/refint/DNSResolver.dll
+/Users/shekhor/projects/DNSResolver/DNSResolver/obj/Debug/net7.0/DNSResolver.pdb
+/Users/shekhor/projects/DNSResolver/DNSResolver/obj/Debug/net7.0/DNSResolver.genruntimeconfig.cache
+/Users/shekhor/projects/DNSResolver/DNSResolver/obj/Debug/net7.0/ref/DNSResolver.dll
