@@ -8,9 +8,9 @@ namespace DNSResolver
 			public ushort ID;
 			public ushort Flags;
 			public ushort QDCOUNT;
-            public ushort ANCOUNT;
-            public ushort NSCOUNT;
-            public ushort ARCOUNT;
+			public ushort ANCOUNT;
+			public ushort NSCOUNT;
+			public ushort ARCOUNT;
         }
 
 		public struct DnsQuestion
@@ -26,16 +26,16 @@ namespace DNSResolver
 			byte[] bytes = new byte[12];
 			bytes[0] = (byte) (dnsHeader.ID >> 8);
 			bytes[1] = (byte)(dnsHeader.ID);
-            bytes[2] = (byte)(dnsHeader.Flags >> 8);
-            bytes[3] = (byte)(dnsHeader.Flags);
-            bytes[4] = (byte)(dnsHeader.QDCOUNT >> 8);
-            bytes[5] = (byte)(dnsHeader.QDCOUNT);
-            bytes[6] = (byte)(dnsHeader.ANCOUNT >> 8);
-            bytes[7] = (byte)(dnsHeader.ANCOUNT);
-            bytes[8] = (byte)(dnsHeader.NSCOUNT >> 8);
-            bytes[9] = (byte)(dnsHeader.NSCOUNT);
-            bytes[10] = (byte)(dnsHeader.ARCOUNT >> 8);
-            bytes[11] = (byte)(dnsHeader.ARCOUNT);
+			bytes[2] = (byte)(dnsHeader.Flags >> 8);
+			bytes[3] = (byte)(dnsHeader.Flags);
+			bytes[4] = (byte)(dnsHeader.QDCOUNT >> 8);
+			bytes[5] = (byte)(dnsHeader.QDCOUNT);
+			bytes[6] = (byte)(dnsHeader.ANCOUNT >> 8);
+			bytes[7] = (byte)(dnsHeader.ANCOUNT);
+			bytes[8] = (byte)(dnsHeader.NSCOUNT >> 8);
+			bytes[9] = (byte)(dnsHeader.NSCOUNT);
+			bytes[10] = (byte)(dnsHeader.ARCOUNT >> 8);
+			bytes[11] = (byte)(dnsHeader.ARCOUNT);
 
 			return bytes;
         }
@@ -49,16 +49,16 @@ namespace DNSResolver
 			foreach(string label in labels)
 			{
 				bytes[offset++] = (byte)(label.Length);
-                foreach(char ch in label)
+				foreach(char ch in label)
 				{
 					bytes[offset++] = (byte) ch;
 				}
-            }
+			}
 			bytes[offset++] = 0;
 			bytes[offset++] = (byte)(dnsQuestion.QTYPE >> 8);
-            bytes[offset++] = (byte)(dnsQuestion.QTYPE);
-            bytes[offset++] = (byte)(dnsQuestion.QCLASS >> 8);
-            bytes[offset++] = (byte)(dnsQuestion.QCLASS);
+			bytes[offset++] = (byte)(dnsQuestion.QTYPE);
+			bytes[offset++] = (byte)(dnsQuestion.QCLASS >> 8);
+			bytes[offset++] = (byte)(dnsQuestion.QCLASS);
 
 			return bytes;
         }
@@ -88,7 +88,7 @@ namespace DNSResolver
 			byte[] message = new byte[dnsHeaderBytes.Length + dnsQuestionBytes.Length];
 
 			Buffer.BlockCopy(dnsHeaderBytes, 0, message, 0, dnsHeaderBytes.Length);
-            Buffer.BlockCopy(dnsQuestionBytes, 0, message, dnsHeaderBytes.Length, dnsQuestionBytes.Length);
+			Buffer.BlockCopy(dnsQuestionBytes, 0, message, dnsHeaderBytes.Length, dnsQuestionBytes.Length);
 
 			return message;
 
@@ -103,6 +103,8 @@ namespace DNSResolver
 			{
 				Console.Write($"{b:x2}");
 			}
+			Console.WriteLine();
+			DnsClient.sendMessage(dnsMessage);
 		}
 
 
