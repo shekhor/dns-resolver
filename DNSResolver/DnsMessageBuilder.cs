@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Text;
+
+// Refer to the RFC 1035 section 4.1.1 and 4.1.2
 namespace DNSResolver
 {
 	public class DnsMessageBuilder
@@ -21,6 +24,7 @@ namespace DNSResolver
 
 		}
 
+		//We converted the DNS header to array of bytes.
 		public static byte[] DnsHeaderToByte(DnsHeader dnsHeader)
 		{
 			byte[] bytes = new byte[12];
@@ -40,6 +44,7 @@ namespace DNSResolver
 			return bytes;
         }
 
+		//Converted the question to array of bytes.
 		public static byte[] DnsQuestionToByte(DnsQuestion dnsQuestion)
 		{
 			byte[] bytes = new byte[dnsQuestion.QNAME.Length + 6];
@@ -63,6 +68,7 @@ namespace DNSResolver
 			return bytes;
         }
 
+		// Built DNS message combining DNS header and question.
 		public static byte[] buildDnsMessage(string domainName)
 		{
 			DnsHeader dnsHeader = new DnsHeader
@@ -77,7 +83,7 @@ namespace DNSResolver
 
 			DnsQuestion dnsQuestion = new DnsQuestion
 			{
-				QNAME = "dns.google.com",
+				QNAME = "www.google.com",
 				QTYPE = 1,
 				QCLASS = 1
 			};
@@ -96,18 +102,20 @@ namespace DNSResolver
 
 		public static void Main(string[] args)
 		{
-			string domainName = "dns.google.com";
+			string domainName = "www.google.com";
 			byte[] dnsMessage = buildDnsMessage(domainName);
+			Console.Write("DNS message is: ");
 
 			foreach(byte b in dnsMessage)
 			{
 				Console.Write($"{b:x2}");
 			}
 			Console.WriteLine();
-			DnsClient.sendMessage(dnsMessage);
+
+			byte[] responseBuffer = DnsClient.sendMessage(dnsMessage);
+			DnsClient.ParseDnsResponse(responseBuffer);
 		}
 
 
 	}
 }
-
